@@ -4,7 +4,7 @@ namespace ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class ShopController extends Controller
 {
     public function indexAction($name)
     {
