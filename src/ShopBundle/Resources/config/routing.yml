@@ -1,3 +1,45 @@
 shop_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ShopBundle:Default:index }
+    path:     /
+    defaults: { _controller: ShopBundle:Shop:index }
+
+shop_about_us:
+    path:     /about
+    defaults: { _controller: ShopBundle:Shop:aboutUs }
+
+category:
+    path:     /category
+    defaults: { _controller: ShopBundle:Shop:category }
+
+details:
+    path:     /details
+    defaults: { _controller: ShopBundle:Shop:details }
+
+special_gifts:
+    path:     /special
+    defaults: { _controller: ShopBundle:Shop:specialGifts }
+
+contact_us:
+    path:     /contact
+    defaults: { _controller: ShopBundle:Contacts:contactUs }
+
+privacy_policy:
+    path:     /privacy
+    defaults: { _controller: ShopBundle:Contacts:privacyPolicy }
+
+register:
+    path:     /register
+    defaults: { _controller: ShopBundle:Contacts:register }
+
+services:
+    path:     /services
+    defaults: { _controller: ShopBundle:Contacts:services }
+
+cart:
+    path:     /cart
+    defaults: { _controller: ShopBundle:User:cart }
+
+my_account:
+    path:     /account
+    defaults: { _controller: ShopBundle:User:myAccount }
+
+
