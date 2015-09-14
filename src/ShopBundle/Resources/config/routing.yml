@@ -20,19 +20,19 @@ special_gifts:
 
 contact_us:
     path:     /contact
-    defaults: { _controller: ShopBundle:Contacts:contactUs }
+    defaults: { _controller: ShopBundle:Contact:contactUs }
 
 privacy_policy:
     path:     /privacy
-    defaults: { _controller: ShopBundle:Contacts:privacyPolicy }
+    defaults: { _controller: ShopBundle:Contact:privacyPolicy }
 
 register:
     path:     /register
-    defaults: { _controller: ShopBundle:Contacts:register }
+    defaults: { _controller: ShopBundle:Contact:register }
 
 services:
     path:     /services
-    defaults: { _controller: ShopBundle:Contacts:services }
+    defaults: { _controller: ShopBundle:Contact:services }
 
 cart:
     path:     /cart

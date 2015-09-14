@@ -11,16 +11,16 @@
 <div id="wrap">
 
     <div class="header">
-        <div class="logo"><a href="#"><img src="{{ asset('images/logo.png') }}" alt="" title="" border="0" /></a></div>
+        <div class="logo"><a href="{{ path('shop_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="" title="" border="0" /></a></div>
         <div id="menu">
             <ul>
                 <li class="selected"><a href="#">home</a></li>
-                <li><a href="#">about us</a></li>
-                <li><a href="#">jewels</a></li>
-                <li><a href="#">specials jewels</a></li>
-                <li><a href="#">my account</a></li>
-                <li><a href="#">register</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a href="{{ path('shop_about_us') }}">about us</a></li>
+                <li><a href="{{ path('category') }}">jewels</a></li>
+                <li><a href="{{ path('special_gifts') }}">specials jewels</a></li>
+                <li><a href="{{ path('my_account') }}">my account</a></li>
+                <li><a href="{{ path('register') }}">register</a></li>
+                <li><a href="{{ path('contact_us') }}">contact</a></li>
             </ul>
         </div>
     </div>
@@ -50,11 +50,11 @@
                 <div class="home_cart_content">
                     3 x items | <span class="red">TOTAL: 100$</span>
                 </div>
-                <a href="#" class="view_cart">view cart</a>
+                <a href="{{ path('cart') }}" class="view_cart">view cart</a>
 
             </div>
 
-            <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet3.gif') }}" alt="" title="" /></span>About Our Shop</div>
+            <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet3.gif') }}" alt="" title="" /></span><a href="{{ path('shop_about_us') }}">About Our Shop</a></div>
             <div class="about">
                 <p>
                     <img src="{{ asset('images/about.gif') }}" alt="" title="" class="right" />
@@ -82,14 +82,6 @@
                     </div>
                 </div>
 
-                <div class="new_prod_box">
-                    <a href="#">product name</a>
-                    <div class="new_prod_bg">
-                        <span class="new_icon"><img src="{{ asset('images/promo_icon.gif') }}" alt="" title="" /></span>
-                        <a href="#"><img src="{{ asset('images/thumb3.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-                    </div>
-                </div>
-
             </div>
 
             <div class="right_box">
@@ -110,20 +102,6 @@
                     <li><a href="#">specials</a></li>
                 </ul>
 
-                <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet6.gif') }}" alt="" title="" /></span>Partners</div>
-
-                <ul class="list">
-                    <li><a href="#">accesories</a></li>
-                    <li><a href="#">jewel gifts</a></li>
-                    <li><a href="#">specials</a></li>
-                    <li><a href="#">hollidays gifts</a></li>
-                    <li><a href="#">accesories</a></li>
-                    <li><a href="#">jewel gifts</a></li>
-                    <li><a href="#">specials</a></li>
-                    <li><a href="#">hollidays gifts</a></li>
-                    <li><a href="#">accesories</a></li>
-                </ul>
-
             </div>
 
 
@@ -135,11 +113,11 @@
     <div class="footer">
         <div class="left_footer"><img src="{{ asset('images/footer_logo.gif') }}" alt="" title="" /><br /> <a href="http://csscreme.com/freecsstemplates/" title="free css templates"><img src="{{ asset('images/csscreme.gif') }}" alt="free css templates" border="0" /></a></div>
         <div class="right_footer">
-            <a href="#">home</a>
-            <a href="#">about us</a>
-            <a href="#">services</a>
-            <a href="#">privacy policy</a>
-            <a href="#">contact us</a>
+            <a href="{{ path('shop_homepage') }}">home</a>
+            <a href="{{ path('shop_about_us') }}">about us</a>
+            <a href="{{ path('services') }}">services</a>
+            <a href="{{ path('privacy_policy') }}">privacy policy</a>
+            <a href="{{ path('contact_us') }}">contact us</a>
         </div>
     </div>
 
