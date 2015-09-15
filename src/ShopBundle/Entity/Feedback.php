@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Feedback
  *
- * @ORM\Table(name="js_feedback")
+ * @ORM\Table(name="js_feedbacks")
  * @ORM\Entity(repositoryClass="ShopBundle\Entity\FeedbackRepository")
  */
 class Feedback
@@ -22,11 +22,10 @@ class Feedback
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    private $userId;
+    private $user;
 
     /**
      * @var string
@@ -63,7 +62,6 @@ class Feedback
      */
     private $message;
 
-
     /**
      * Get id
      *
@@ -72,29 +70,6 @@ class Feedback
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Feedback
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
     }
 
     /**
@@ -210,5 +185,28 @@ class Feedback
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \ShopBundle\Entity\User $user
+     * @return Feedback
+     */
+    public function setUser(\ShopBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \ShopBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Category
  *
- * @ORM\Table(name="js_category")
+ * @ORM\Table(name="js_categories")
  * @ORM\Entity(repositoryClass="ShopBundle\Entity\CategoryRepository")
  */
 class Category
@@ -35,6 +35,17 @@ class Category
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Good", mappedBy="category")
+     **/
+    private $goods;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goods = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -90,5 +101,38 @@ class Category
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add goods
+     *
+     * @param \ShopBundle\Entity\Good $goods
+     * @return Category
+     */
+    public function addGood(\ShopBundle\Entity\Good $goods)
+    {
+        $this->goods[] = $goods;
+
+        return $this;
+    }
+
+    /**
+     * Remove goods
+     *
+     * @param \ShopBundle\Entity\Good $goods
+     */
+    public function removeGood(\ShopBundle\Entity\Good $goods)
+    {
+        $this->goods->removeElement($goods);
+    }
+
+    /**
+     * Get goods
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGoods()
+    {
+        return $this->goods;
     }
 }
