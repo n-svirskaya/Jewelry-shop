@@ -16,5 +16,10 @@ class UserController extends Controller
         return $this->render('ShopBundle:Users:my_account.html.twig');
     }
 
+    public function userAccountAction()
+    {
+        return $this->render('ShopBundle:Users:user_account.html.twig');
+    }
+
 
 }

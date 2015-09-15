@@ -1,0 +1,67 @@
+{% extends '@Shop/layout.html.twig' %}
+{% block content %}
+    <div class="left_content">
+        <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet1.gif') }}" alt="" title="" /></span>My account</div>
+        <div class="feat_prod_box_details">
+            <p class="details">
+               <h3>Hello, UserName!</h3>
+            </p>
+
+            <div class="feat_prod_box_details">
+                <h3>Your cart:</h3>
+                <table class="cart_table">
+                    <tr class="cart_title">
+                        <td>Item pic</td>
+                        <td>Jewel name</td>
+                        <td>Unit price</td>
+                        <td>Qty</td>
+                        <td>Total</td>
+                    </tr>
+
+                    <tr>
+                        <td><a href="details.html"><img src="{{ asset('images/cart_thumb.gif') }}" alt="" title="" border="0" class="cart_thumb" /></a></td>
+                        <td>Jewel</td>
+                        <td>100$</td>
+                        <td>1</td>
+                        <td>100$</td>
+                    </tr>
+                    <tr>
+                        <td><a href="details.html"><img src="{{ asset('images/cart_thumb.gif') }}" alt="" title="" border="0" class="cart_thumb" /></a></td>
+                        <td>Jewel</td>
+                        <td>100$</td>
+                        <td>1</td>
+                        <td>100$</td>
+                    </tr>
+                    <tr>
+                        <td><a href="details.html"><img src="{{ asset('images/cart_thumb.gif') }}" alt="" title="" border="0" class="cart_thumb" /></a></td>
+                        <td>Jewel</td>
+                        <td>100$</td>
+                        <td>1</td>
+                        <td>100$</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="cart_total"><span class="red">TOTAL SHIPPING:</span></td>
+                        <td> 250$</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" class="cart_total"><span class="red">TOTAL:</span></td>
+                        <td> 325$</td>
+                    </tr>
+
+                </table>
+                <a href="#" class="continue">&lt; continue</a>
+                <a href="#" class="checkout">checkout &gt;</a>
+
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="clear"></div>
+    </div><!--end of left content-->
+{% endblock %}

@@ -16,8 +16,10 @@ class ContactController extends Controller
         return $this->render('ShopBundle:Contacts:privacy_policy.html.twig');
     }
 
-    public function registerAction()
+    public function registerAction(Request $request)
     {
+        $this->processContact($request);
+
         return $this->render('ShopBundle:Contacts:register.html.twig');
     }
 
@@ -26,5 +28,8 @@ class ContactController extends Controller
         return $this->render('ShopBundle:Contacts:services.html.twig');
     }
 
+    public function processContact(Request $request)
+    {
 
+    }
 }

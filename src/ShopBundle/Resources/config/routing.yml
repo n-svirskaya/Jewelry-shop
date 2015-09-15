@@ -26,10 +26,6 @@ privacy_policy:
     path:     /privacy
     defaults: { _controller: ShopBundle:Contact:privacyPolicy }
 
-register:
-    path:     /register
-    defaults: { _controller: ShopBundle:Contact:register }
-
 services:
     path:     /services
     defaults: { _controller: ShopBundle:Contact:services }
@@ -41,5 +37,9 @@ cart:
 my_account:
     path:     /account
     defaults: { _controller: ShopBundle:User:myAccount }
+
+user_account:
+    path:     /user
+    defaults: { _controller: ShopBundle:User:UserAccount }
 
 
