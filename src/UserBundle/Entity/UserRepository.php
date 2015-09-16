@@ -1,6 +1,6 @@
 <?php
 
-namespace ShopBundle\Entity;
+namespace UserBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

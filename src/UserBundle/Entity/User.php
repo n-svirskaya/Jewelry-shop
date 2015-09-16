@@ -9,7 +9,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * User
  *
  * @ORM\Table(name="js_users")
- * @ORM\Entity(repositoryClass="ShopBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="UserBundle\Entity\UserRepository")
  */
 class User extends BaseUser
 {
@@ -24,33 +24,40 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="user_name", type="string", length=255)
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
-    private $userName;
+    private $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="string", length=255)
+     * @ORM\Column(name="company", type="string", length=255, nullable=true)
      */
     private $company;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adrres", type="string", length=255)
+     * @ORM\Column(name="adrres", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="ShopBundle\Entity\Feedback", mappedBy="user")
      **/
     private $feedbacks;
     /**
@@ -69,29 +76,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set userName
-     *
-     * @param string $userName
-     * @return User
-     */
-    public function setUserName($userName)
-    {
-        $this->userName = $userName;
-
-        return $this;
-    }
-
-    /**
-     * Get userName
-     *
-     * @return string 
-     */
-    public function getUserName()
-    {
-        return $this->userName;
     }
 
     /**
@@ -195,4 +179,38 @@ class User extends BaseUser
     {
         return $this->feedbacks;
     }
+
+    /**
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+
 }

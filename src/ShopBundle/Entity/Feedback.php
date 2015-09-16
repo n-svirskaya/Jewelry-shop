@@ -22,7 +22,7 @@ class Feedback
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -190,10 +190,10 @@ class Feedback
     /**
      * Set user
      *
-     * @param \ShopBundle\Entity\User $user
+     * @param \UserBundle\Entity\User $user
      * @return Feedback
      */
-    public function setUser(\ShopBundle\Entity\User $user = null)
+    public function setUser(\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -203,7 +203,7 @@ class Feedback
     /**
      * Get user
      *
-     * @return \ShopBundle\Entity\User 
+     * @return \UserBundle\Entity\User
      */
     public function getUser()
     {

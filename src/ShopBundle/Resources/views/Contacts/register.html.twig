@@ -10,7 +10,7 @@
 
         <div class="contact_form">
             <div class="form_subtitle">create new account</div>
-            <form name="register" action="#">
+            <form name="register" action="{{ path('fos_user_registration_register') }}"  method="post">
                 <div class="form_row">
                     <label class="contact"><strong>Username:</strong></label>
                     <input type="text" class="contact_input" />

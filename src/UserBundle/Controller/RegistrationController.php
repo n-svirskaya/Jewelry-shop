@@ -3,7 +3,7 @@
 namespace UserBundle\Controller;
 
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {

@@ -42,4 +42,8 @@ user_account:
     path:     /user
     defaults: { _controller: ShopBundle:User:UserAccount }
 
+register:
+    path:     /register
+    defaults: { _controller: UserBundle:Registration:register }
+
 
