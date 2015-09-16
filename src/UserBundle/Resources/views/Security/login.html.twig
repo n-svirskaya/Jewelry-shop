@@ -7,18 +7,54 @@
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <div class="left_content">
+        <p>Powered by premium <a href="http://www.flashmint.com/">Flash Templates</a></p>
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <div class="feat_prod_box_details">
+            <p class="details">
+                Please, enter your user name and password:
+            </p>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+            <div class="contact_form">
+                <div class="form_subtitle">login into your account</div>
+                <form name="register" action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <div class="form_row">
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                        <label class="contact" for="username">{{ 'Username'|trans }}</label>
+                        <input type="text" class="contact_input" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+                    </div>
+
+
+                    <div class="form_row">
+
+                        <label class="contact" for="password">{{ 'Password'|trans }}</label>
+                        <input type="password" class="contact_input" id="password" name="_password" required="required" />
+
+                    </div>
+
+                    <div class="form_row">
+                        <div class="terms">
+                            <input type="checkbox" id="remember_me" name="terms" value="on" />
+                            <label for="remember_me">{{ 'Remember me'|trans }}</label>
+                        </div>
+                    </div>
+
+
+                    <div class="form_row">
+                        <input type="submit" class="register" id="_submit" name="_submit" value="{{ 'login'|trans }}" />
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="clear"></div>
+    </div><!--end of left content-->
+
 {% endblock fos_user_content %}

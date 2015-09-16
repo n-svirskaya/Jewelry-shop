@@ -66,6 +66,8 @@ class User extends BaseUser
     public function __construct()
     {
         $this->feedbacks = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+        $this->roles = array("ROLE_USER");
     }
 
     /**

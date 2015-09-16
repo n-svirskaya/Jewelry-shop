@@ -46,4 +46,8 @@ register:
     path:     /register
     defaults: { _controller: UserBundle:Registration:register }
 
+default_security_target:
+    path:     /user
+    defaults: { _controller: ShopBundle:User:userAccount }
+
 

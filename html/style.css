@@ -383,13 +383,14 @@ _margin:20px 0 0 5px;
 border:1px #DFD1D2 dashed;
 position:relative;
 }
+
 .form_row{
+color:#333333;
 width:335px;
 _width:355px;
 clear:both;
 padding:10px 0 10px 0;
 _padding:5px 0 5px 0;
-color:#a53d17;
 }
 label.contact{
 width:75px;

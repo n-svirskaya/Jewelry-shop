@@ -389,10 +389,22 @@ _width:355px;
 clear:both;
 padding:10px 0 10px 0;
 _padding:5px 0 5px 0;
-color:#a53d17;
+color:#333333;
+}
+.login{
+    color:#37728e;
+    font-size:13px;
+    float: right;
+    margin: -130px 200px 1px 1px;
+}
+.logout{
+    color:#37728e;
+    font-size:13px;
+    float: right;
+    margin: -130px 130px 1px 1px;
 }
 label.contact{
-width:100px;
+
 float:left;
 font-size:12px;
 text-align:left;
