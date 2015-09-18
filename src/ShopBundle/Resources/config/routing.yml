@@ -50,4 +50,18 @@ default_security_target:
     path:     /user
     defaults: { _controller: ShopBundle:User:userAccount }
 
+login:
+    path:     /login
+    defaults: { _controller: FOSUserBundle:Security:login }
 
+logout:
+    path:     /logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
+personal_info:
+    path:     /user/info
+    defaults: { _controller: ShopBundle:User:infoUserAccount }
+
+user_edit:
+    path:     /user/edit
+    defaults: { _controller: ShopBundle:User:userEdit }

@@ -1,0 +1,38 @@
+{% extends '@Shop/Users/user_account.html.twig' %}
+{% block user_account_content %}
+
+    <div class="center_block">
+
+        <div class="personal_info_name">
+            <span class="info_title">Name:</span>
+            <span class="personal_info_db">{{ app.user.userName }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">First Name:</span>
+            <span class="personal_info_db">{{ app.user.firstName }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">Last Name:</span>
+            <span class="personal_info_db">{{ app.user.lastName }}</span></div>
+        <div class="personal_info_name">
+            <span class="info_title">E-mail:</span>
+            <span class="personal_info_db">{{ app.user.email }}</span></div>
+        <div class="personal_info_name">
+            <span class="info_title">Phone:</span>
+            <span class="personal_info_db">{{ app.user.phone }}</span></div>
+        <div class="personal_info_name">
+            <span class="info_title">Company:</span>
+            <span class="personal_info_db">{{ app.user.company }}</span></div>
+        <div class="personal_info_name">
+            <span class="info_title">Address:</span>
+            <span class="personal_info_db">{{ app.user.address }}</span></div>
+
+        <div><img src="{{ asset('images/pensil3.png') }}" alt="" title=""/><a href="#">Edit personal information</a>
+        </div>
+
+
+    </div>
+
+    <div class="clear"></div>
+
+{% endblock %}
