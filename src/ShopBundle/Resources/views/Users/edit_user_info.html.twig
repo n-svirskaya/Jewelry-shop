@@ -2,7 +2,30 @@
 {% block user_account_content %}
 
     <div class="center_block">
-        {{ form(form) }}
+        {{ form_start(form) }}
+        <div class="personal_info_name">
+            <span class="info_title">First Name:</span>
+            <span class="personal_info_db">{{ form_widget(form.firstName) }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">Last Name:</span>
+            <span class="personal_info_db">{{ form_widget(form.lastName) }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">Phone:</span>
+            <span class="personal_info_db">{{ form_widget(form.phone) }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">Company:</span>
+            <span class="personal_info_db">{{ form_widget(form.company) }}</span>
+        </div>
+        <div class="personal_info_name">
+            <span class="info_title">Address:</span>
+            <span class="personal_info_db">{{ form_widget(form.address) }}</span>
+        </div>
+
+       {{ form_end(form) }}
+
     </div>
 
     <div class="clear"></div>
