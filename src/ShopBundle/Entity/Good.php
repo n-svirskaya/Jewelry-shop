@@ -3,6 +3,7 @@
 namespace ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Good
@@ -140,7 +141,7 @@ class Good
      * @param string $picture
      * @return Good
      */
-    public function setPicture($picture)
+    public function setPicture(UploadedFile $picture = null)
     {
         $this->picture = $picture;
 
@@ -179,4 +180,58 @@ class Good
     {
         return $this->category;
     }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->picture
+            ? null
+            : $this->getUploadRootDir() . '/' . $this->picture;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->picture
+            ? null
+            : $this->getUploadDir() . '/' . $this->picture;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/goods';
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function upload()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getPicture()) {
+            return;
+        }
+        /** @var UploadedFile $fPicture */
+        $fPicture = $this->getPicture();
+        $dirPath = $this->getUploadRootDir();
+        $picture = $fPicture->getClientOriginalName();
+        $ext = $fPicture->guessExtension();
+        $name = substr($picture, 0, - strlen($ext));
+        $i = 1;
+
+        while(file_exists($dirPath . '/' .  $picture)) {
+            $picture = $name . '-' . $i .'.'. $ext;
+            $i++;
+        }
+
+        $fPicture->move($dirPath, $picture);
+        $this->picture = $picture;
+    }
+
 }

@@ -12,9 +12,12 @@ class RegistrationController extends BaseController
     {
         $securityContext = $this->container->get('security.context');
         if ($securityContext->isGranted('ROLE_USER')) {
-            return new RedirectResponse($this->generateUrl('user_account'), 302);
+            return new RedirectResponse($this->generateUrl('personal_info'), 302);
         }
 
+        if ($securityContext->isGranted('ROLE_ADMIN')) {
+            return new RedirectResponse($this->generateUrl('personal_info'), 302);
+        }
         $response = parent::registerAction($request);
 
         return $response;

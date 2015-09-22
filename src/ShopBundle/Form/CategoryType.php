@@ -1,12 +1,12 @@
 <?php
 
-namespace UserBundle\Form;
+namespace ShopBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class UserType extends AbstractType
+class CategoryType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,16 +15,17 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email')
-            ->add('firstName')
-            ->add('lastName')
-            ->add('phone')
-            ->add('company')
-            ->add('address')
-            ->add('save', 'submit', array(
-                'attr' => array('class' => 'save'),
-            ));
+            ->add('name', null, array(
+                'label' => 'input comment',
+                'attr' => array('style' => 'width: 180px')
+                                    )
+                )
+            ->add('description', 'textarea', array(
+                'label' => 'input comment',
+                'attr' => array('style' => 'width: 180px')
+                                        )
+                    )
+        ;
     }
     
     /**
@@ -33,7 +34,7 @@ class UserType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'UserBundle\Entity\User'
+            'data_class' => 'ShopBundle\Entity\Category'
         ));
     }
 
@@ -42,6 +43,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'userbundle_user';
+        return 'shopbundle_category';
     }
 }

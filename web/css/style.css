@@ -3,8 +3,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     font-size: 12px;
-    margin: 0px auto auto auto;
     color: #000000;
+    margin: 0;
 }
 
 a {
@@ -17,7 +17,7 @@ a {
 
 p {
     padding: 5px 0 5px 0;
-    margin: 0px;
+    margin: 0;
     text-align: justify;
     line-height: 19px;
 }
@@ -29,13 +29,13 @@ p.details {
 
 p.details_cart {
     clear: both;
-    padding: 25px 30px 5px 0px;
+    padding: 25px 30px 5px 0;
     font-size: 11px;
     font-style: italic;
 }
 
 p.more_details {
-    padding: 25px 20px 0px 20px;
+    padding: 25px 20px 0 20px;
     font-size: 11px;
 }
 
@@ -85,11 +85,67 @@ p.more_details {
     text-align: left;
 
 }
+.admin_menu_category a {
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 10px;
+
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e0f0c7;
+    text-align: left;
+}
+.admin_menu_good a {
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 10px;
+
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e0f0c7;
+    text-align: left;
+}
+.admin_menu_order_process a {
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 25px;
+
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e0f0c7;
+    text-align: left;
+
+}
 
 .personal_info_name {
     display: block;
     color: #37728e;
     margin: 10px;
+    height: 18px;
+}
+.personal_info_name_1 {
+    display: block;
+    color: #37728e;
+    margin: 0;
+    height: 0;
+}
+.personal_info_name_category {
+    display: block;
+    color: #37728e;
+    margin: 20px;
+    height: 20px;
 }
 
 .personal_info_email {
@@ -102,6 +158,12 @@ p.more_details {
     vertical-align: top;
     width: 28%;
 }
+.left_menu_admin {
+    display: inline-block;
+    vertical-align: top;
+    width: 28%;
+    color: #377200;
+}
 
 .center_block {
     display: inline-block;
@@ -111,6 +173,12 @@ p.more_details {
 .personal_info_db {
     color: #000000;
     padding-left: 10px;
+}
+
+.personal_info_db_add_category {
+    color: #000000;
+    padding-left: 10px;
+    width: 150px;
 }
 
 #wrap {
@@ -142,22 +210,21 @@ p.more_details {
     display: block;
     list-style: none;
     padding: 9px 0 0 10px;
-    margin: 0px;
+    margin: 0;
 }
 
 #menu ul li {
     display: inline;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     height: 20px;
 }
 
 #menu ul li a {
     height: 27px;
     display: block;
-    padding: 0px 10px 0 10px;
+    padding: 0 10px 0 10px;
     margin: 0 4px 0 4px;
-    _margin: 0 2px 0 2px;
     float: left;
     text-decoration: none;
     text-align: center;
@@ -169,7 +236,7 @@ p.more_details {
 #menu ul li.selected a {
     height: 27px;
     display: block;
-    padding: 0px 10px 0 10px;
+    padding: 0 10px 0 10px;
     margin: 0 5px 0 5px;
     float: left;
     text-decoration: underline;
@@ -186,7 +253,7 @@ p.more_details {
 
 /*----------------crumb_nav------------------*/
 .crumb_nav {
-    padding: 5px 0 10px 0px;
+    padding: 5px 0 10px 0;
 }
 
 .crumb_nav a {
@@ -210,7 +277,7 @@ span.colors {
 /*------------------------------------center content--------------------*/
 .center_content {
     width: 900px;
-    padding: 0px 0 0 0;
+    padding: 0 0 0 0;
     background: url(/images/center_bg.gif) no-repeat center top;
 }
 
@@ -228,7 +295,7 @@ span.colors {
 
 .title {
     color: #ee4699;
-    padding: 0px;
+    padding: 0;
     /*float:left;*/
     font-size: 19px;
     margin: 10px 0 10px 0;
@@ -258,7 +325,7 @@ a.more {
     float: right;
     text-decoration: none;
     font-size: 11px;
-    padding: 0px 15px 0 0;
+    padding: 0 15px 0 0;
 }
 
 .about {
@@ -347,14 +414,14 @@ img.right {
 
 .new_icon {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     z-index: 200;
 }
 
 .special_icon {
     position: absolute;
-    top: 0px;
+    top: 0;
     _top: 6px;
     right: 2px;
     z-index: 250;
@@ -366,13 +433,13 @@ img.thumb {
 
 .new_products {
     clear: both;
-    padding: 0px;
+    padding: 0;
 }
 
 ul.list {
     clear: both;
     padding: 10px 0 0 20px;
-    margin: 0px;
+    margin: 0;
 }
 
 ul.list li {
@@ -402,8 +469,8 @@ div.demolayout {
 ul.demolayout {
     list-style-type: none;
     float: left;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 ul.demolayout li {
@@ -441,7 +508,7 @@ ul.demolayout a.active {
 
 .tabs-container {
     clear: left;
-    padding: 0px;
+    padding: 0;
 }
 
 /*-----------------------languages_box---------*/
@@ -514,32 +581,39 @@ a.view_cart {
     float: left;
     padding: 25px;
     margin: 20px 0 0 15px;
-    _margin: 20px 0 0 5px;
     border: 1px #DFD1D2 dashed;
     position: relative;
 }
 
 .form_row {
     width: 335px;
-    _width: 355px;
     clear: both;
     padding: 10px 0 10px 0;
-    _padding: 5px 0 5px 0;
     color: #333333;
 }
 
-.login {
-    color: #37728e;
+.login a{
+    color: #37728e !important;
     font-size: 13px;
     float: right;
     margin: -130px 200px 1px 1px;
+    text-decoration: none !important;
 }
 
-.logout {
-    color: #37728e;
+.logout a{
+    color: #37728e !important;
     font-size: 13px;
     float: right;
     margin: -130px 130px 1px 1px;
+    text-decoration: none !important;
+}
+
+.register a{
+    color: #37728e !important;
+    font-size: 13px;
+    float: right;
+    margin: -130px 60px 1px 1px;
+    text-decoration: none !important;
 }
 
 label.contact {
@@ -613,7 +687,7 @@ a.continue {
     height: 25px;
     display: block;
     float: left;
-    margin: 10px 0 0 0px;
+    margin: 10px 0 0 0;
     background: url(/images/register_bt.gif) no-repeat center;
     text-decoration: none;
     text-align: center;
@@ -730,4 +804,28 @@ div.pagination span.disabled {
 .info_title {
     display: inline-block;
     width: 65px;
+    vertical-align: top;
+}
+.submit {
+    display: inline-block;
+    width: 65px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+.width_input {
+    width: 180px;
+    display: inline-block;
+    padding-right: 0;
+
+}
+
+.flash-message {
+    background-color: #ccffff;
+    border: 1px solid #c3dee6;
+    border-radius: 10px;
+    color: blue;
+    font-size: 15px;
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
 }

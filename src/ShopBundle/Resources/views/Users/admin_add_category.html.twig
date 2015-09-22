@@ -1,0 +1,24 @@
+{% extends '@Shop/Users/user_account.html.twig' %}
+{% block user_account_content %}
+
+    <div class="center_block">
+        <form action="" method="post">
+            {{ form_errors(form) }}
+            {{ form_widget(form._token) }}
+            <div class="personal_info_name_category">
+                <span class="info_title">Category:</span>
+                <span class="personal_info_db_add_category">{{ form_widget(form.name) }}</span>
+            </div>
+            <div class="personal_info_name_category">
+                <span class="info_title">Description:</span>
+                <span class="personal_info_db_add_category">{{ form_widget(form.description) }}</span>
+            </div>
+
+            <div class="submit">
+                <input type='submit' value='Save' name='submit'/>
+            </div>
+        </form>
+    </div>
+    <div class="clear"></div>
+
+{% endblock %}

@@ -2,14 +2,24 @@
 {% block user_account_content %}
 
     <div class="center_block">
-        {{ form_start(form) }}
+        <form action="" method="post">
+            {{ form_errors(form) }}
+            {{ form_widget(form._token) }}
         <div class="personal_info_name">
+            <span class="info_title">Name:</span>
+            <span class="personal_info_db">{{ form_widget(form.username) }}</span>
+        </div>
+            <div class="personal_info_name">
             <span class="info_title">First Name:</span>
             <span class="personal_info_db">{{ form_widget(form.firstName) }}</span>
         </div>
         <div class="personal_info_name">
             <span class="info_title">Last Name:</span>
             <span class="personal_info_db">{{ form_widget(form.lastName) }}</span>
+        </div>
+            <div class="personal_info_name">
+            <span class="info_title">E-mail:</span>
+            <span class="personal_info_db">{{ form_widget(form.email) }}</span>
         </div>
         <div class="personal_info_name">
             <span class="info_title">Phone:</span>
@@ -23,8 +33,8 @@
             <span class="info_title">Address:</span>
             <span class="personal_info_db">{{ form_widget(form.address) }}</span>
         </div>
-
-       {{ form_end(form) }}
+        <input type="submit" value="Save" name="submit"/>
+       </form>
 
     </div>
 

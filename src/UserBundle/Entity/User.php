@@ -214,5 +214,12 @@ class User extends BaseUser
         $this->lastName = $lastName;
     }
 
+    /**
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->roles;
+    }
 
 }

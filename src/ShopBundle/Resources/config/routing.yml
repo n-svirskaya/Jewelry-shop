@@ -40,7 +40,7 @@ my_account:
 
 user_account:
     path:     /user
-    defaults: { _controller: ShopBundle:User:UserAccount }
+    defaults: { _controller: ShopBundle:User:userAccount }
 
 register:
     path:     /register
@@ -65,3 +65,23 @@ personal_info:
 user_edit:
     path:     /user/edit
     defaults: { _controller: ShopBundle:User:userEdit }
+
+wish_list:
+    path:     /user/list
+    defaults: { _controller: ShopBundle:User:userList }
+
+add_category:
+    path:     /admin/category
+    defaults: { _controller: ShopBundle:User:adminAddCategory }
+
+add_good:
+    path:     /admin/good
+    defaults: { _controller: ShopBundle:User:adminAddGood }
+
+order_processing:
+    path:     /admin/order
+    defaults: { _controller: ShopBundle:User:adminOrderProcessing }
+
+admin_account:
+    path:     /admin
+    defaults: { _controller: ShopBundle:User:userAccount }
