@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use UserBundle\Form\UserType;
 
 
@@ -71,12 +72,16 @@ class UserController extends Controller
 
         $form->handleRequest($request);
         if ($form->isValid()) {
+            $category->upload();
+
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($category);
             $em->flush($category);
+
+            $this->container->get('session')->getFlashBag()->add('notice', 'Your category has been added successfully!');
+
             return $this->redirect($this->generateUrl('add_category'));
         }
-
 
         return $this->render('ShopBundle:Users:admin_add_category.html.twig', array('form' => $form->createView()));
     }
@@ -98,6 +103,7 @@ class UserController extends Controller
 
             return $this->redirect($this->generateUrl('add_good'));
         }
+
 
         return $this->render('ShopBundle:Users:admin_add_good.html.twig', array('form' => $form->createView()));
     }

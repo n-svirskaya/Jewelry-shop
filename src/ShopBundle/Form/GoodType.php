@@ -29,14 +29,15 @@ class GoodType extends AbstractType
             ))
             ->add('picture', 'file', array(
                 'label' => 'input comment',
-                'attr' => array('class' => 'width_input')
+                'attr' => array('class' => 'width_input'),
+                'required' => false
             ))
             ->add('category', 'entity', array(
                 'class' => 'ShopBundle:Category',
                 'property' => 'name',
                 'expanded' => false,
                 'multiple' => false,
-
+                'empty_value' => 'Choose category',
                 'attr' => array('class' => 'width_input')
             ))
             ->getForm()

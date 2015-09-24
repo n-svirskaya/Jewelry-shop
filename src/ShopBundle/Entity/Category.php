@@ -3,6 +3,8 @@
 namespace ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -23,7 +25,7 @@ class Category
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="Name missing!")
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -34,6 +36,24 @@ class Category
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var string
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {
+     *          "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *          "application/pdf",
+     *          "application/x-pdf"
+     *      },
+     *     mimeTypesMessage = "Please upload a valid PDF/JPEG/JPG/GIF"
+     * )
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
+    private $picture;
 
     /**
      * @ORM\OneToMany(targetEntity="Good", mappedBy="category")
@@ -104,6 +124,29 @@ class Category
     }
 
     /**
+     * Set picture
+     *
+     * @param string $picture
+     * @return Category
+     */
+    public function setPicture(UploadedFile $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
      * Add goods
      *
      * @param \ShopBundle\Entity\Good $goods
@@ -134,5 +177,58 @@ class Category
     public function getGoods()
     {
         return $this->goods;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->picture
+            ? null
+            : $this->getUploadRootDir() . '/' . $this->picture;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->picture
+            ? null
+            : $this->getUploadDir() . '/' . $this->picture;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/categories';
+    }
+    /**
+     * @ORM\PrePersist()
+     */
+    public function upload()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getPicture()) {
+            return;
+        }
+        /** @var UploadedFile $fPicture */
+        $fPicture = $this->getPicture();
+        $dirPath = $this->getUploadRootDir();
+        $picture = $fPicture->getClientOriginalName();
+        $ext = $fPicture->guessExtension();
+        $name = substr($picture, 0, - strlen($ext));
+        $i = 1;
+
+        while(file_exists($dirPath . '/' .  $picture)) {
+            $picture = $name . '-' . $i .'.'. $ext;
+            $i++;
+        }
+
+        $fPicture->move($dirPath, $picture);
+        $this->picture = $picture;
     }
 }

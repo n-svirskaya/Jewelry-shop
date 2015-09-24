@@ -4,6 +4,7 @@ namespace ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Good
@@ -23,6 +24,7 @@ class Good
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Category missing!")
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
@@ -30,7 +32,13 @@ class Good
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *     min=3,
+     *     max=50,
+     *     minMessage="The name is too short.",
+     *     maxMessage="The name is too long.",
+     * )
+     * @Assert\NotBlank
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -44,14 +52,25 @@ class Good
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="Price missing!")
      * @ORM\Column(name="price", type="string", length=255)
      */
     private $price;
 
     /**
      * @var string
-     *
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {
+     *          "image/png",
+     *          "image/jpeg",
+     *          "image/jpg",
+     *          "image/gif",
+     *          "application/pdf",
+     *          "application/x-pdf"
+     *      },
+     *     mimeTypesMessage = "Please upload a valid PDF/JPEG/JPG/GIF"
+     * )
      * @ORM\Column(name="picture", type="string", length=255)
      */
     private $picture;

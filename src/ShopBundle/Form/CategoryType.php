@@ -17,14 +17,19 @@ class CategoryType extends AbstractType
         $builder
             ->add('name', null, array(
                 'label' => 'input comment',
-                'attr' => array('style' => 'width: 180px')
+                'attr' => array('class' => 'width_input')
                                     )
                 )
-            ->add('description', 'textarea', array(
+            ->add('picture', 'file', array(
                 'label' => 'input comment',
-                'attr' => array('style' => 'width: 180px')
-                                        )
-                    )
+                'attr' => array('class' => 'width_input')
+                                                )
+                       )
+            ->add('description', 'textarea', array(
+                    'label' => 'input comment',
+                    'attr' => array('class' => 'width_input')
+                )
+            )
         ;
     }
     
@@ -46,3 +51,4 @@ class CategoryType extends AbstractType
         return 'shopbundle_category';
     }
 }
+
