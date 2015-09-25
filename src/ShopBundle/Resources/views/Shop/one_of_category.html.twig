@@ -1,0 +1,46 @@
+{% extends '@User/layout.html.twig' %}
+{% block content %}
+    <div class="left_content" xmlns="http://www.w3.org/1999/html">
+        <div class="crumb_nav">
+            <a href="{{ path('shop_homepage') }}">home</a> &gt;&gt; <a href="{{ path('category') }}">jewels</a> &gt;&gt;{{ category.name }}
+        </div>
+
+        <div class="title">{{ category.name }}</div>
+
+        <div class="feat_prod_box_details">
+
+            <div class="prod_img"><img src="{{ asset(category.getUploadDir~'/'~category.picture) }}" alt="" title="" class="thumb" border="0" />
+                <br /><br />
+            </div>
+
+            <div class="prod_det_box">
+                <div class="box_top"></div>
+                <div class="box_center">
+                    <div class="prod_title">Description</div>
+                    <p class="details">{{ category.description }}
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="new_products">
+         {% for good in goods %}
+            <div class="new_prod_box">
+                <a href="{{ path('details', { 'id': good.id }) }}"><h4 class="name_of_good">{{ good.name }}</h4></a>
+                <div class="new_prod_bg">
+                    <a href="{{ path('details', { 'id': good.id }) }}"><img src="{{ asset(good.getUploadDir~'/'~good.picture) }}" width="120" height="103" alt="" title="" class="thumb" border="0" /></a>
+                </div>
+            </div>
+         {% endfor %}
+            <div class="pagination">
+                <span class="disabled"><<</span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a>…<a href="#?page=199">10</a><a href="#?page=200">11</a><a href="#?page=2">>></a>
+            </div>
+
+        </div>
+
+
+        <div class="clear"></div>
+    </div><!--end of left content-->
+{% endblock %}

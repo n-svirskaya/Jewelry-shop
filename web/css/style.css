@@ -24,7 +24,7 @@ p {
 
 p.details {
     padding: 5px 15px 5px 15px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 p.details_cart {
@@ -128,12 +128,18 @@ p.more_details {
     text-align: left;
 
 }
+h4.name_of_good {
+    display: inline-block;
+    width: 100px !important;
+
+}
 
 .personal_info_name {
     display: block;
     color: #37728e;
     margin: 10px;
     height: 18px;
+
 }
 .personal_info_name_1 {
     display: block;
@@ -395,6 +401,7 @@ img.right {
     float: left;
     text-align: center;
     padding: 10px;
+    float: left;
 }
 
 .new_prod_box a {
@@ -429,6 +436,7 @@ img.right {
 
 img.thumb {
     padding: 10px 0 0 0;
+
 }
 
 .new_products {

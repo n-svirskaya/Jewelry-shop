@@ -2,3 +2,12 @@ services:
 #    shop.example:
 #        class: ShopBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+  shop.event_subscriber.category_subscriber:
+    class: ShopBundle\EventSubscriber\CategorySubscriber
+    tags:
+      - { name: doctrine.event_subscriber }
+    arguments:    ['@service_container']
+
+
+  shop.service.helper:
+      class: ShopBundle\Service\Helper

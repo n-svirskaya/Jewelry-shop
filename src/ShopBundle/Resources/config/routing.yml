@@ -10,8 +10,12 @@ category:
     path:     /category
     defaults: { _controller: ShopBundle:Shop:category }
 
+one_of_category:
+    path:     /category/{transName}
+    defaults: { _controller: ShopBundle:Shop:oneCategory }
+
 details:
-    path:     /details
+    path:     /details/{id}
     defaults: { _controller: ShopBundle:Shop:details }
 
 special_gifts:

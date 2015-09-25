@@ -3,12 +3,16 @@
 namespace ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
- *
+ * @UniqueEntity(
+ *     fields={"transName"},
+ *     message="This name is already used in this shop."
+ * )
  * @ORM\Table(name="js_categories")
  * @ORM\Entity(repositoryClass="ShopBundle\Entity\CategoryRepository")
  */
@@ -59,12 +63,21 @@ class Category
      * @ORM\OneToMany(targetEntity="Good", mappedBy="category")
      **/
     private $goods;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="transName", type="string", length=255)
+     */
+    private $transName;
+
     /**
      * Constructor
      */
-    public function __construct()
+        public function __construct()
     {
         $this->goods = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -147,6 +160,29 @@ class Category
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     * @return Category
+     */
+    public function setTransName($TransName)
+    {
+        $this->transName = $TransName;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getTransName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Add goods
      *
      * @param \ShopBundle\Entity\Good $goods
@@ -200,7 +236,7 @@ class Category
         return __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
-    protected function getUploadDir()
+    public function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.

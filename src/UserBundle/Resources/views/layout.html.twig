@@ -1,10 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
     <title>Jewelry Shop</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/lightbox.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/colorbox.css') }}" />
+    <script type="text/javascript" src="{{ asset('js/jquery-1.11.3.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.colorbox-min.js') }}"></script>
 
 </head>
 <body>
@@ -12,13 +14,15 @@
 
     <div class="header">
         <div class="logo"><a href="{{ path('shop_homepage') }}"><img src="{{ asset('images/logo.png') }}" alt="" title="" border="0" /></a></div>
+
         {% if not app.user %}
-            <div class="register"><a href="{{ path('register') }}">Register</a></div>
+        <div class="register"><a href="{{ path('register') }}">Register</a></div>
         {% endif %}
         <div class="logout"><a href="{{ path('logout') }}">Logout</a></div>
         {% if not app.user %}
-            <div class="login"><a href="{{ path('login') }}">Login</a></div>
+        <div class="login"><a href="{{ path('login') }}">Login</a></div>
         {% endif %}
+
         <div id="menu">
             <ul>
                 <li class="selected"><a href="{{ path('shop_homepage') }}">home</a></li>
@@ -33,6 +37,13 @@
 
 
     <div class="center_content">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+
+            <div class="flash-message">{{ flashMessage }}</div>
+
+        {% endfor %}
+        {% block content %}
+        {% endblock %}
         {% block fos_user_content %}
         {% endblock fos_user_content %}
 
@@ -64,7 +75,7 @@
             <div class="about">
                 <p>
                     <img src="{{ asset('images/about.gif') }}" alt="" title="" class="right" />
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+                    Our jewels - it's part of your happy stories. Jewellery designed to preserve the most precious moments of life and do amazing every day. Our inspiration - heartfelt emotions hidden in the heart. The unique vision of beauty and craftsmanship combine to create a true reflection of your feelings in our exclusive jewelery quality.
                 </p>
 
             </div>
@@ -95,10 +106,12 @@
                 <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet5.gif') }}" alt="" title="" /></span>Categories</div>
 
                 <ul class="list">
-                    <li><a href="#">accesories</a></li>
-                    <li><a href="#">jewel gifts</a></li>
-                    <li><a href="#">specials</a></li>
-                    <li><a href="#">hollidays gifts</a></li>
+                    <li><a href="#">rings</a></li>
+                    <li><a href="#">earrings</a></li>
+                    <li><a href="#">pendants</a></li>
+                    <li><a href="#">chains</a></li>
+                    <li><a href="#">bracelets</a></li>
+                    <li><a href="#">piercings</a></li>
 
                 </ul>
 

@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use UserBundle\Form\UserType;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
 
 
 class UserController extends Controller
@@ -77,6 +79,7 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($category);
             $em->flush($category);
+            $a = $category->getName();
 
             $this->container->get('session')->getFlashBag()->add('notice', 'Your category has been added successfully!');
 
