@@ -75,8 +75,13 @@ wish_list:
     defaults: { _controller: ShopBundle:User:userList }
 
 add_category:
-    path:     /admin/category
+    path:     /admin/category/add
     defaults: { _controller: ShopBundle:User:adminAddCategory }
+
+
+admin_category:
+    path:     /admin/category
+    defaults: { _controller: ShopBundle:User:adminCategory }
 
 add_good:
     path:     /admin/good
@@ -89,3 +94,13 @@ order_processing:
 admin_account:
     path:     /admin
     defaults: { _controller: ShopBundle:User:userAccount }
+
+admin_add_category:
+    path:     /admin/category/add
+    defaults: { _controller: ShopBundle:User:adminAddCategory }
+
+admin_delete_category:
+    path:     /admin/category/delete/{id}
+    defaults: { _controller: ShopBundle:User:adminDeleteCategory }
+    requirements:
+            id:  \d+

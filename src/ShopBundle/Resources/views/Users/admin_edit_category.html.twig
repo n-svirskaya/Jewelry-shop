@@ -1,16 +1,31 @@
 {% extends '@Shop/Users/user_account.html.twig' %}
 {% block user_account_content %}
 
-    <div class="center_block add_form">
-        <form action="" enctype="multipart/form-data" method="post">
+    <div class="center_block">
+        <form action="" method="post" enctype="multipart/form-data">
             {{ form_errors(form) }}
             {{ form_widget(form._token) }}
+            {{ form_errors(form.category) }}
             {{ form_errors(form.name) }}
+            {{ form_errors(form.price) }}
             {{ form_errors(form.picture) }}
             {{ form_errors(form.description) }}
             <div class="personal_info_name_category">
                 <span class="info_title">Category:</span>
+                <span class="personal_info_db_add_category">{{ form_widget(form.category) }}</span>
+
+
+            </div>
+
+            <div class="personal_info_name_category">
+                <span class="info_title">Name:</span>
                 <span class="personal_info_db_add_category">{{ form_widget(form.name) }}</span>
+
+            </div>
+            <div class="personal_info_name_category">
+                <span class="info_title">Price:</span>
+                <span class="personal_info_db_add_category">{{ form_widget(form.price) }}</span>
+
             </div>
             <div class="personal_info_name_category">
                 <span class="info_title">Picture:</span>
@@ -18,11 +33,9 @@
             </div>
             <div class="personal_info_name_category">
                 <span class="info_title">Description:</span>
-                <span class="personal_info_db_add_category">{{ form_widget(form.description) }}</span>
+                <span class="personal_info_db">{{ form_widget(form.description) }}</span>
             </div>
-
             <div class="submit">
-                <a href="{{ path('admin_category') }}"><< Back</a>
                 <input type='submit' value='Save' name='submit'/>
             </div>
         </form>

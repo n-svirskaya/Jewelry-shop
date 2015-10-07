@@ -69,43 +69,65 @@ class UserController extends Controller
      */
     public function adminAddCategoryAction(Request $request)
     {
-        $category = new Category();
-        $form = $this->createForm(new CategoryType(), $category);
-
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $category->upload();
-
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($category);
-            $em->flush($category);
-            $a = $category->getName();
-
-            $this->container->get('session')->getFlashBag()->add('notice', 'Your category has been added successfully!');
-
-            return $this->redirect($this->generateUrl('add_category'));
+        $categoryId = $request->get('id');
+        $em = $this->getDoctrine()->getEntityManager();
+        if (!$categoryId) {
+            $category = new Category();
+        } else {
+            $category = $em->getRepository('ShopBundle:Category')->findOneBy(array('id'=> $categoryId));
         }
+            $form = $this->createForm(new CategoryType(), $category);
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $category->upload();
+                $em->persist($category);
+                $em->flush($category);
+                $this->container->get('session')->getFlashBag()->add('notice', 'Your category has been added successfully!');
 
-        return $this->render('ShopBundle:Users:admin_add_category.html.twig', array('form' => $form->createView()));
+                return $this->redirect($this->generateUrl('admin_category'));
+            }
+
+            return $this->render('ShopBundle:Users:admin_add_category.html.twig', array('form' => $form->createView()));
+
+    }
+
+    public function adminDeleteCategoryAction(Request $request)
+    {
+        $categoryId = $request->get('id');
+        $em = $this->getDoctrine()->getEntityManager();
+        $category = $em->getRepository('ShopBundle:Category')->findOneBy(array('id'=> $categoryId));
+        if (is_object($category)) {
+            $em->remove($category);
+            $em->flush($category);
+            $message = "Category removed successfully";
+        } else {
+            $message = "Requested category is not found";
+        }
+        $this->container->get('session')->getFlashBag()->add('notice', $message);
+
+        return $this->redirect($this->generateUrl('admin_category'));
     }
 
     public function adminAddGoodAction(Request $request)
     {
-        $good = new Good();
-        $form = $this->createForm(new GoodType(), $good);
 
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $good->upload();
 
-            $em = $this->getDoctrine()->getEntityManager();
-            $em->persist($good);
-            $em->flush($good);
+            $good = new Good();
+            $form = $this->createForm(new GoodType(), $good);
 
-            $this->container->get('session')->getFlashBag()->add('notice', 'Your good has been added successfully!');
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $good->upload();
 
-            return $this->redirect($this->generateUrl('add_good'));
-        }
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($good);
+                $em->flush($good);
+
+                $this->container->get('session')->getFlashBag()->add('notice', 'Your good has been added successfully!');
+
+                return $this->redirect($this->generateUrl('add_good'));
+            }
+
 
 
         return $this->render('ShopBundle:Users:admin_add_good.html.twig', array('form' => $form->createView()));
@@ -115,6 +137,44 @@ class UserController extends Controller
     {
         return $this->render('ShopBundle:Users:admin_order_processing.html.twig');
     }
+
+    public function adminEditCategoryAction(Request $request)
+    {
+        $categoryId = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        /** @var Category $category */
+        $category = $em->getRepository('ShopBundle:Category')->findOneBy(array('id'=> $categoryId));
+        if ($categoryId) {
+            $category = new Category();
+            $form = $this->createForm(new CategoryType(), $category);
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $category->upload();
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($category);
+                $em->flush($category);
+                $a = $category->getName();
+
+                $this->container->get('session')->getFlashBag()->add('notice', 'Your category has been added successfully!');
+
+                return $this->redirect($this->generateUrl('add_category'));
+            }
+        }
+
+        return $this->render('ShopBundle:Users:admin_edit_category.html.twig', array('category' => $category));
+    }
+
+    public function adminCategoryAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+
+        return $this->render('ShopBundle:Users:admin_category.html.twig', array('categories' => $categories));
+    }
+
+
 
 
 }

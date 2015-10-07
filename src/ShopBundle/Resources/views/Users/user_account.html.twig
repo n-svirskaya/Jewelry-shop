@@ -11,11 +11,12 @@
                 <div class="user_menu_orders"><a href="#">My orders</a></div>
                 <div class="user_menu_list"><a href="{{ path('wish_list') }}">Wish list</a></div>
                 {% if 'ROLE_ADMIN' in app.user.roles %}
-                    <div class="admin_menu_category"><a href="{{ path('add_category') }}">Add category</a></div>
-                    <div class="admin_menu_good"><a href="{{ path('add_good') }}">Add good</a></div>
+                    <div class="admin_menu_category"><a href="{{ path('admin_category') }}">Categories</a></div>
+                    <div class="admin_menu_good"><a href="{{ path('add_good') }}">Good</a></div>
                     <div class="admin_menu_order_process"><a href="{{ path('order_processing') }}">Order processing</a></div>
                 {% endif %}
             </div>
+
 
             {% block user_account_content %}
             {% endblock %}

@@ -267,4 +267,11 @@ class Category
         $fPicture->move($dirPath, $picture);
         $this->picture = $picture;
     }
+
+    public function displaySymbols($srting, $num1, $num2)
+    {
+        $str = substr($srting, $num1, $num2);
+
+        return $str;
+    }
 }

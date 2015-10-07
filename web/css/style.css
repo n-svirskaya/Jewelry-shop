@@ -9,6 +9,7 @@ body {
 
 a {
     color: #d81e7a;
+
 }
 
 .clear {
@@ -51,6 +52,7 @@ p.more_details {
     font-weight: bold;
     background-color: #E0F2F7;
     text-align: left;
+    border-radius: 7px;
 
 }
 
@@ -60,14 +62,14 @@ p.more_details {
     text-decoration: none;
     width: 100px;
     height: 10px;
-
+    border-radius: 7px;
     margin-top: 12px;
     padding: 10px;
     font-size: 15px;
     font-weight: bold;
     background-color: #E0F2F7;
     text-align: left;
-
+    border-radius: 7px;
 }
 
 .user_menu_list a {
@@ -76,7 +78,7 @@ p.more_details {
     text-decoration: none;
     width: 100px;
     height: 10px;
-
+    border-radius: 7px;
     margin-top: 12px;
     padding: 10px;
     font-size: 15px;
@@ -91,7 +93,7 @@ p.more_details {
     text-decoration: none;
     width: 100px;
     height: 10px;
-
+    border-radius: 7px;
     margin-top: 12px;
     padding: 10px;
     font-size: 15px;
@@ -105,7 +107,7 @@ p.more_details {
     text-decoration: none;
     width: 100px;
     height: 10px;
-
+    border-radius: 7px;
     margin-top: 12px;
     padding: 10px;
     font-size: 15px;
@@ -119,7 +121,7 @@ p.more_details {
     text-decoration: none;
     width: 100px;
     height: 25px;
-
+    border-radius: 7px;
     margin-top: 12px;
     padding: 10px;
     font-size: 15px;
@@ -173,7 +175,7 @@ h4.name_of_good {
 
 .center_block {
     display: inline-block;
-    width: 70%;
+
 }
 
 .personal_info_db {
@@ -816,12 +818,19 @@ div.pagination span.disabled {
 }
 .submit {
     display: inline-block;
-    width: 65px;
-    margin-top: 50px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.submit input {
+    float: right;
+    margin-right: 20px;
+}
+.submit a {
     margin-left: 20px;
 }
 .width_input {
-    width: 180px;
+    width: 220px;
     display: inline-block;
     padding-right: 0;
 
@@ -836,4 +845,40 @@ div.pagination span.disabled {
     margin: 15px;
     padding: 15px;
     text-align: center;
+}
+.admin_table{
+    margin-top: -225px;
+    margin-left: 130px;
+    width: 360px;
+    border-collapse: collapse;
+}
+.admin_td{
+    padding: 3px;
+    border: 1px solid lightslategray;
+}
+.admin_th {
+    padding: 3px;
+    border: 1px solid lightslategray;
+    background: #e0f2f7;
+}
+
+form.center_block p{
+    margin-top: 10px;
+    margin-left: 350px;
+
+}
+form.center_block span {
+    margin-bottom: 0px;
+    margin-left: 206px;
+}
+#try {
+    color: #0000BB;
+    text-decoration: underline;
+}
+
+.add_form {
+    background-color: aliceblue;
+    border: 1px solid PowderBlue;
+    border-radius: 10px;
+    width: 346px;
 }
