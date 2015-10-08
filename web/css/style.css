@@ -101,20 +101,7 @@ p.more_details {
     background-color: #e0f0c7;
     text-align: left;
 }
-.admin_menu_good a {
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #e0f0c7;
-    text-align: left;
-}
+
 .admin_menu_order_process a {
     display: block;
     color: #37728e;
@@ -128,8 +115,8 @@ p.more_details {
     font-weight: bold;
     background-color: #e0f0c7;
     text-align: left;
-
 }
+
 h4.name_of_good {
     display: inline-block;
     width: 100px !important;
@@ -854,7 +841,7 @@ div.pagination span.disabled {
 }
 .admin_td{
     padding: 3px;
-    border: 1px solid lightslategray;
+    border: 1px solid #b5b5b6;
 }
 .admin_th {
     padding: 3px;
@@ -881,4 +868,52 @@ form.center_block span {
     border: 1px solid PowderBlue;
     border-radius: 10px;
     width: 346px;
+}
+
+.user_active a{
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #E0F2F7;
+    text-align: left;
+    border-radius: 7px;
+    border: 1px solid #37728e;
+}
+
+.admin_active a{
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 10px;
+    border-radius: 7px;
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e0f0c7;
+    text-align: left;
+    border: 1px solid #37728e;
+}
+
+.admin_process_active a{
+    display: block;
+    color: #37728e;
+    text-decoration: none;
+    width: 100px;
+    height: 25px;
+    border-radius: 7px;
+    margin-top: 12px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e0f0c7;
+    text-align: left;
+    border: 1px solid #37728e;
 }

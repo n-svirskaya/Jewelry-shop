@@ -108,27 +108,43 @@ class UserController extends Controller
         return $this->redirect($this->generateUrl('admin_category'));
     }
 
+    public function adminDeleteGoodAction(Request $request)
+    {
+        $goodId = $request->get('id');
+        $em = $this->getDoctrine()->getEntityManager();
+        $good = $em->getRepository('ShopBundle:Good')->findOneBy(array('id'=> $goodId));
+        if (is_object($good)) {
+            $em->remove($good);
+            $em->flush($good);
+            $message = "Good removed successfully";
+        } else {
+            $message = "Requested good is not found";
+        }
+        $this->container->get('session')->getFlashBag()->add('notice', $message);
+
+        return $this->redirect($this->generateUrl('admin_good'));
+    }
+
     public function adminAddGoodAction(Request $request)
     {
-
-
+        $goodId = $request->get('id');
+        $em = $this->getDoctrine()->getEntityManager();
+        if (!$goodId) {
             $good = new Good();
-            $form = $this->createForm(new GoodType(), $good);
+        } else {
+            $good = $em->getRepository('ShopBundle:Good')->findOneBy(array('id'=> $goodId));
+        }
+        $form = $this->createForm(new GoodType(), $good);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $good->upload();
+            $em->persist($good);
+            $em->flush($good);
 
-            $form->handleRequest($request);
-            if ($form->isValid()) {
-                $good->upload();
+            $this->container->get('session')->getFlashBag()->add('notice', 'Your good has been added successfully!');
 
-                $em = $this->getDoctrine()->getEntityManager();
-                $em->persist($good);
-                $em->flush($good);
-
-                $this->container->get('session')->getFlashBag()->add('notice', 'Your good has been added successfully!');
-
-                return $this->redirect($this->generateUrl('add_good'));
-            }
-
-
+            return $this->redirect($this->generateUrl('admin_good'));
+        }
 
         return $this->render('ShopBundle:Users:admin_add_good.html.twig', array('form' => $form->createView()));
     }
@@ -172,6 +188,14 @@ class UserController extends Controller
         $categories = $em->getRepository('ShopBundle:Category')->findAll();
 
         return $this->render('ShopBundle:Users:admin_category.html.twig', array('categories' => $categories));
+    }
+
+    public function adminGoodAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $goods = $em->getRepository('ShopBundle:Good')->findAll();
+
+        return $this->render('ShopBundle:Users:admin_good.html.twig', array('goods' => $goods));
     }
 
 

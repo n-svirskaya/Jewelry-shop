@@ -29,6 +29,7 @@ class GoodType extends AbstractType
             ))
             ->add('picture', 'file', array(
                 'label' => 'input comment',
+                'data_class' => null,
                 'attr' => array('class' => 'width_input'),
                 'required' => false
             ))

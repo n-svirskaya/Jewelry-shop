@@ -274,4 +274,9 @@ class Category
 
         return $str;
     }
+
+    public function countSymbols($srting)
+    {
+        return iconv_strlen($srting);
+    }
 }

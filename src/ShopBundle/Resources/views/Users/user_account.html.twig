@@ -7,13 +7,29 @@
 
         <div>
             <div class="left_menu">
-                <div class="user_menu_info"><a href="{{ path('personal_info') }}">Personal info</a></div>
+                {% if app.request.attributes.get('_route') == 'personal_info' %}
+                    <div class="user_active"><a href="{{ path('personal_info') }}">Personal info</a></div>
+                {% else %}
+                    <div class="user_menu_info"><a href="{{ path('personal_info') }}">Personal info</a></div>
+                {% endif %}
                 <div class="user_menu_orders"><a href="#">My orders</a></div>
                 <div class="user_menu_list"><a href="{{ path('wish_list') }}">Wish list</a></div>
                 {% if 'ROLE_ADMIN' in app.user.roles %}
-                    <div class="admin_menu_category"><a href="{{ path('admin_category') }}">Categories</a></div>
-                    <div class="admin_menu_good"><a href="{{ path('add_good') }}">Good</a></div>
-                    <div class="admin_menu_order_process"><a href="{{ path('order_processing') }}">Order processing</a></div>
+                    {% if app.request.attributes.get('_route') == 'admin_category' %}
+                        <div class="admin_active"><a href="{{ path('admin_category') }}">Categories</a></div>
+                    {% else %}
+                        <div class="admin_menu_category"><a href="{{ path('admin_category') }}">Categories</a></div>
+                    {% endif %}
+                    {% if app.request.attributes.get('_route') == 'admin_good' %}
+                        <div class="admin_active"><a href="{{ path('admin_good') }}">Goods</a></div>
+                    {% else %}
+                        <div class="admin_menu_category"><a href="{{ path('admin_good') }}">Goods</a></div>
+                    {% endif %}
+                    {% if app.request.attributes.get('_route') == 'order_processing' %}
+                        <div class="admin_process_active"><a href="{{ path('order_processing') }}">Order processing</a></div>
+                    {% else %}
+                        <div class="admin_menu_order_process"><a href="{{ path('order_processing') }}">Order processing</a></div>
+                    {% endif %}
                 {% endif %}
             </div>
 

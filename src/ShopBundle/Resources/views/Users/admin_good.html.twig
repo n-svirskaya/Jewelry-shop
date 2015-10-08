@@ -1,0 +1,54 @@
+{% extends '@Shop/Users/user_account.html.twig' %}
+{% block user_account_content %}
+
+    <div class="center_block">
+        <form class="center_block" >
+            <span><input type="button" value="Create new good" onclick="window.location.href='{{ path('add_good') }}'"/></span>
+        </form>
+    </div>
+    <table class="admin_table center_block">
+        <thead class="admin_th">
+        <td class="admin_td">category</td>
+        <td class="admin_td">name</td>
+        <td class="admin_td">description</td>
+        <td class="admin_td">price</td>
+        <td class="admin_td">picture</td>
+        <td></td>
+        </thead>
+        {%  set i = 0 %}
+        {% for good in goods %}
+            <tr class="admin_td">
+                <td class="admin_td">{{ good.category.name }}</td>
+                <td class="admin_td">{{ good.name }}</td>
+                <td class="admin_td">
+                    {% if good.countSymbols(good.description) > 30 %}
+                        <div  id="r{{ i }}">{{ good.displaySymbols(good.description, 0, 30)~'... ' }}
+                            <a href="javascript:change_visibility ('r{{ i }}', 'r{{ i+1 }}')">read more</a>
+                        </div>
+                        <div  id="r{{ i+1 }}" style="display:none">{{ good.description }}
+                            <a href="#" onClick="change_visibility ('r{{ i+1 }}', 'r{{ i }}')">hide</a>
+                        </div>
+                    {% else %}
+                        <div>{{ good.description }}</div>
+                    {% endif %}
+                </td>
+                <td class="admin_td">{{ good.price }}</td>
+                <td class="admin_td"><img src="{{ asset(good.getUploadDir~'/'~good.picture) }}" width="50" alt="" title=""/></td>
+                <td><a href="{{ path('add_good', {'id': good.id}) }}">edit</a><br><br>
+                    <a href="{{ path('admin_delete_good', {'id': good.id}) }}">delete</a></td>
+            </tr>
+            {%  set i = i+2 %}
+        {% endfor %}
+    </table>
+    <script type="text/javascript">
+        function change_visibility (block_4_close, block_4_open) {
+            document.getElementById(block_4_close).style.display='none';
+            document.getElementById(block_4_open).style.display='';
+        }
+    </script>
+    <div class="center_block">
+        <form class="center_block">
+            <p><input type="button" value="Create new good" onclick="window.location.href='{{ path('add_good') }}'"/></p>
+        </form>
+    </div>
+{% endblock %}

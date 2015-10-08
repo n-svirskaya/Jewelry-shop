@@ -25,12 +25,36 @@
 
         <div id="menu">
             <ul>
-                <li class="selected"><a href="{{ path('shop_homepage') }}">home</a></li>
-                <li><a href="{{ path('shop_about_us') }}">about us</a></li>
-                <li><a href="{{ path('category') }}">jewels</a></li>
-                <li><a href="{{ path('special_gifts') }}">specials jewels</a></li>
-                <li><a href="{{ path('my_account') }}">my account</a></li>
-                <li><a href="{{ path('contact_us') }}">contact</a></li>
+                {% if app.request.attributes.get('_route') == 'shop_homepage' %}
+                    <li class="selected"><a href="{{ path('shop_homepage') }}">home</a></li>
+                {% else %}
+                    <li><a href="{{ path('shop_homepage') }}">home</a></li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'shop_about_us' %}
+                    <li class="selected"><a href="{{ path('shop_about_us') }}">about us</a></li>
+                {% else %}
+                    <li><a href="{{ path('shop_about_us') }}">about us</a></li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'category' %}
+                    <li class="selected"><a href="{{ path('category') }}">jewels</a></li>
+                {% else %}
+                    <li><a href="{{ path('category') }}">jewels</a></li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'special_gifts' %}
+                    <li class="selected"><a href="{{ path('special_gifts') }}">specials jewels</a></li>
+                {% else %}
+                    <li><a href="{{ path('special_gifts') }}">specials jewels</a></li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'personal_info' %}
+                    <li class="selected"><a href="{{ path('my_account') }}">my account</a></li>
+                {% else %}
+                    <li><a href="{{ path('my_account') }}">my account</a></li>
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'contact_us' %}
+                    <li class="selected"><a href="{{ path('contact_us') }}">contacts</a></li>
+                {% else %}
+                    <li><a href="{{ path('contact_us') }}">contacts</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

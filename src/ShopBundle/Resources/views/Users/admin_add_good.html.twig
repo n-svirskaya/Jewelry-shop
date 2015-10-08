@@ -1,7 +1,7 @@
 {% extends '@Shop/Users/user_account.html.twig' %}
 {% block user_account_content %}
 
-    <div class="center_block">
+    <div class="center_block add_form">
         <form action="" method="post" enctype="multipart/form-data">
             {{ form_errors(form) }}
             {{ form_widget(form._token) }}
@@ -36,6 +36,7 @@
                 <span class="personal_info_db">{{ form_widget(form.description) }}</span>
             </div>
             <div class="submit">
+                <a href="{{ path('admin_good') }}"><< Back</a>
                 <input type='submit' value='Save' name='submit'/>
             </div>
         </form>

@@ -78,13 +78,16 @@ add_category:
     path:     /admin/category/add
     defaults: { _controller: ShopBundle:User:adminAddCategory }
 
-
 admin_category:
     path:     /admin/category
     defaults: { _controller: ShopBundle:User:adminCategory }
 
-add_good:
+admin_good:
     path:     /admin/good
+    defaults: { _controller: ShopBundle:User:adminGood }
+
+add_good:
+    path:     /admin/good/add
     defaults: { _controller: ShopBundle:User:adminAddGood }
 
 order_processing:
@@ -102,5 +105,11 @@ admin_add_category:
 admin_delete_category:
     path:     /admin/category/delete/{id}
     defaults: { _controller: ShopBundle:User:adminDeleteCategory }
+    requirements:
+            id:  \d+
+
+admin_delete_good:
+    path:     /admin/good/delete/{id}
+    defaults: { _controller: ShopBundle:User:adminDeleteGood }
     requirements:
             id:  \d+

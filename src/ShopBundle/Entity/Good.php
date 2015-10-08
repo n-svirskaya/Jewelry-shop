@@ -253,4 +253,16 @@ class Good
         $this->picture = $picture;
     }
 
+
+    public function displaySymbols($srting, $num1, $num2)
+    {
+        $str = substr($srting, $num1, $num2);
+
+        return $str;
+    }
+
+    public function countSymbols($srting)
+    {
+        return iconv_strlen($srting);
+    }
 }

@@ -18,12 +18,16 @@
                 <tr class="admin_td">
                     <td class="admin_td">{{ category.name }}</td>
                     <td class="admin_td">
-                        <div  id="r{{ i }}">{{ category.displaySymbols(category.description, 0, 63)~'... ' }}
-                            <a href="javascript:change_visibility ('r{{ i }}', 'r{{ i+1 }}')">read more</a>
-                        </div>
-                        <div  id="r{{ i+1 }}" style="display:none">{{ category.description }}
-                            <a href="#" onClick="change_visibility ('r{{ i+1 }}', 'r{{ i }}')">hide</a>
-                        </div>
+                        {% if category.countSymbols(category.description) > 63 %}
+                            <div  id="r{{ i }}">{{ category.displaySymbols(category.description, 0, 63)~'... ' }}
+                                <a href="javascript:change_visibility ('r{{ i }}', 'r{{ i+1 }}')">read more</a>
+                            </div>
+                            <div  id="r{{ i+1 }}" style="display:none">{{ category.description }}
+                                <a href="#" onClick="change_visibility ('r{{ i+1 }}', 'r{{ i }}')">hide</a>
+                            </div>
+                        {% else %}
+                            <div>{{ category.description }}</div>
+                        {% endif %}
                     </td>
                     <td class="admin_td"><img src="{{ asset(category.getUploadDir~'/'~category.picture) }}" width="50" alt="" title=""/></td>
                     <td><a href="{{ path('admin_add_category', {'id': category.id}) }}">edit</a><br><br>
