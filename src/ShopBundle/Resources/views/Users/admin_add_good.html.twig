@@ -35,6 +35,19 @@
                 <span class="info_title">Description:</span>
                 <span class="personal_info_db">{{ form_widget(form.description) }}</span>
             </div>
+            <div class="personal_info_name_category featured">
+                <span class="info_title">Featured:</span>
+                <span class="personal_info_db">{{ form_widget(form.featured) }}</span>
+            </div>
+            <div class="personal_info_name_category">
+                <span class="info_title">{{ form_label(form.new) }}:</span>
+                <span class="personal_info_db">{{ form_widget(form.new) }}</span>
+            </div>
+            <div class="personal_info_name_category">
+                <span class="info_title">Promotion:</span>
+                <span class="personal_info_db">{{ form_widget(form.promotion) }}</span>
+            </div>
+
             <div class="submit">
                 <a href="{{ path('admin_good') }}"><< Back</a>
                 <input type='submit' value='Save' name='submit'/>

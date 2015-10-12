@@ -1,10 +1,8 @@
 {% extends '@Shop/Users/user_account.html.twig' %}
 {% block user_account_content %}
 
-    <div class="center_block">
-        <form class="center_block" >
-            <span><input type="button" value="Create new category" onclick="window.location.href='{{ path('add_category') }}'"/></span>
-        </form>
+    <div class="add-new-button">
+        <input type="button" value="Create new category" onclick="window.location.href='{{ path('add_category') }}'"/>
     </div>
     <table class="admin_table center_block">
         <thead class="admin_th">
@@ -42,9 +40,7 @@
             document.getElementById(block_4_open).style.display='';
         }
     </script>
-    <div class="center_block">
-        <form class="center_block">
-            <p><input type="button" value="Create new category" onclick="window.location.href='{{ path('add_category') }}'"/></p>
-        </form>
+    <div class="add-new-button">
+        <input type="button" value="Create new category" onclick="window.location.href='{{ path('add_category') }}'"/>
     </div>
 {% endblock %}

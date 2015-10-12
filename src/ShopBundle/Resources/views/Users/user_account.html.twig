@@ -15,12 +15,12 @@
                 <div class="user_menu_orders"><a href="#">My orders</a></div>
                 <div class="user_menu_list"><a href="{{ path('wish_list') }}">Wish list</a></div>
                 {% if 'ROLE_ADMIN' in app.user.roles %}
-                    {% if app.request.attributes.get('_route') == 'admin_category' %}
+                    {% if (app.request.attributes.get('_route') == 'admin_category') or (app.request.attributes.get('_route') == 'add_category') %}
                         <div class="admin_active"><a href="{{ path('admin_category') }}">Categories</a></div>
                     {% else %}
                         <div class="admin_menu_category"><a href="{{ path('admin_category') }}">Categories</a></div>
                     {% endif %}
-                    {% if app.request.attributes.get('_route') == 'admin_good' %}
+                    {% if (app.request.attributes.get('_route') == 'admin_good') or (app.request.attributes.get('_route') == 'add_good') %}
                         <div class="admin_active"><a href="{{ path('admin_good') }}">Goods</a></div>
                     {% else %}
                         <div class="admin_menu_category"><a href="{{ path('admin_good') }}">Goods</a></div>

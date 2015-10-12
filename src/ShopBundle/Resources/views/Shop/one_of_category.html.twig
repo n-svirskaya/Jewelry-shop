@@ -9,7 +9,7 @@
 
         <div class="feat_prod_box_details">
 
-            <div class="prod_img"><img src="{{ asset(category.getUploadDir~'/'~category.picture) }}" alt="" title="" class="thumb" border="0" />
+            <div class="prod_img"><img src="{{ asset(category.getUploadDir~'/'~category.picture) }}"  width="120" height="115" alt="" title="" class="thumb" border="0" />
                 <br /><br />
             </div>
 
@@ -34,12 +34,11 @@
                 </div>
             </div>
          {% endfor %}
-            <div class="pagination">
-                <span class="disabled"><<</span><span class="current">1</span><a href="#?page=2">2</a><a href="#?page=3">3</a>…<a href="#?page=199">10</a><a href="#?page=200">11</a><a href="#?page=2">>></a>
-            </div>
 
         </div>
-
+        <div class="navigation">
+            {{ knp_pagination_render(goods) }}
+        </div>
 
         <div class="clear"></div>
     </div><!--end of left content-->

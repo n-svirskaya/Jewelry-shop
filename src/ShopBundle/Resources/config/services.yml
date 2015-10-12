@@ -11,3 +11,11 @@ services:
 
   shop.service.helper:
       class: ShopBundle\Service\Helper
+
+
+  shop.twig.extension:
+          class: ShopBundle\Twig\ShopTwigExtension
+          public: false
+          tags:
+              - { name: twig.extension }
+          arguments:    ['@doctrine.orm.default_entity_manager']

@@ -22,7 +22,7 @@ class Feedback
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="feedbacks")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

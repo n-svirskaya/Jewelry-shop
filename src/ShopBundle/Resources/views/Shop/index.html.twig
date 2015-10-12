@@ -3,17 +3,17 @@
 <div class="left_content">
 
     <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet1.gif') }}" alt="" title="" /></span>Featured products</div>
-
+    {% for oneGoodFeatured in goodFeatured %}
     <div class="feat_prod_box">
 
-        <div class="prod_img"><a href="#"><img src="{{ asset('images/prod1.gif') }}" alt="" title="" border="0" /></a></div>
+        <div class="prod_img"><a href="{{ path('details', { 'id': oneGoodFeatured.id }) }}"><img src="{{ asset(oneGoodFeatured.getUploadDir~'/'~oneGoodFeatured.picture) }}" WIDTH="100" height="" alt="" title="" border="0" /></a></div>
 
         <div class="prod_det_box">
             <div class="box_top"></div>
             <div class="box_center">
-                <div class="prod_title">Product name</div>
-                <p class="details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                <a href="details.html" class="more">- more details -</a>
+                <div class="prod_title">{{ oneGoodFeatured.name }}</div>
+                <p class="details">{{ oneGoodFeatured.description }}</p>
+                <a href="{{ path('details', { 'id': oneGoodFeatured.id }) }}" class="more">- more details -</a>
                 <div class="clear"></div>
             </div>
 
@@ -21,80 +21,20 @@
         </div>
         <div class="clear"></div>
     </div>
-
-
-    <div class="feat_prod_box">
-
-        <div class="prod_img"><a href="details.html"><img src="{{ asset('images/prod2.gif') }}" alt="" title="" border="0" /></a></div>
-
-        <div class="prod_det_box">
-            <div class="box_top"></div>
-            <div class="box_center">
-                <div class="prod_title">Product name</div>
-                <p class="details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                <a href="details.html" class="more">- more details -</a>
-                <div class="clear"></div>
-            </div>
-
-            <div class="box_bottom"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-
+{% endfor %}
 
     <div class="title"><span class="title_icon"><img src="{{ asset('images/bullet2.gif') }}" alt="" title="" /></span>New products</div>
 
     <div class="new_products">
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb1.gif') }}" alt="" title="" class="thumb" border="0" /></a>
+        {% for oneGoodNew in goodNew %}
+            <div class="new_prod_box">
+                <a href="{{ path('details', { 'id': oneGoodNew.id }) }}">{{ oneGoodNew.name }}</a>
+                <div class="new_prod_bg">
+                    <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
+                    <a href="{{ path('details', { 'id': oneGoodNew.id }) }}"><img src="{{ asset(oneGoodNew.getUploadDir~'/'~oneGoodNew.picture) }}" width="100" height="89" alt="" title="" class="thumb" border="0" /></a>
+                </div>
             </div>
-        </div>
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb2.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-            </div>
-        </div>
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb3.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-            </div>
-        </div>
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb2.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-            </div>
-        </div>
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb2.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-            </div>
-        </div>
-
-        <div class="new_prod_box">
-            <a href="details.html">product name</a>
-            <div class="new_prod_bg">
-                <span class="new_icon"><img src="{{ asset('images/new_icon.gif') }}" alt="" title="" /></span>
-                <a href="details.html"><img src="{{ asset('images/thumb1.gif') }}" alt="" title="" class="thumb" border="0" /></a>
-            </div>
-        </div>
-
+        {% endfor %}
 
 
     </div>

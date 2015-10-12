@@ -41,6 +41,9 @@ class GoodType extends AbstractType
                 'empty_value' => 'Choose category',
                 'attr' => array('class' => 'width_input')
             ))
+            ->add('featured')
+            ->add('new')
+            ->add('promotion')
             ->getForm()
         ;
     }

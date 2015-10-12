@@ -40,81 +40,22 @@ p.more_details {
     font-size: 11px;
 }
 
-.user_menu_info a {
+.left_menu > div > a {
     display: block;
     color: #37728e;
     text-decoration: none;
-    width: 100px;
     height: 10px;
     margin-top: 10px;
     padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #E0F2F7;
-    text-align: left;
-    border-radius: 7px;
-
-}
-
-.user_menu_orders a {
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
+    font-size: 11px;
     font-weight: bold;
     background-color: #E0F2F7;
     text-align: left;
     border-radius: 7px;
 }
 
-.user_menu_list a {
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #E0F2F7;
-    text-align: left;
-
-}
-.admin_menu_category a {
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #e0f0c7;
-    text-align: left;
-}
-
-.admin_menu_order_process a {
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 25px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #e0f0c7;
-    text-align: left;
+.left_menu > div {
+    display: inline-block;
 }
 
 h4.name_of_good {
@@ -142,6 +83,13 @@ h4.name_of_good {
     margin: 20px;
     height: 20px;
 }
+.personal_info_name_category_radius {
+    display: block;
+    color: #37728e;
+    margin-top: 60px;
+    margin-left: 30px;
+    height: 20px;
+}
 
 .personal_info_email {
     display: block;
@@ -151,7 +99,6 @@ h4.name_of_good {
 .left_menu {
     display: inline-block;
     vertical-align: top;
-    width: 28%;
 }
 .left_menu_admin {
     display: inline-block;
@@ -162,6 +109,7 @@ h4.name_of_good {
 
 .center_block {
     display: inline-block;
+    margin-top: 10px;
 
 }
 
@@ -614,12 +562,12 @@ a.view_cart {
 }
 
 label.contact {
-
-    float: left;
+    float: left !important;
     font-size: 12px;
     text-align: left;
     padding: 4px 5px 0 0;
     color: #333333;
+    width: 60px;
 }
 
 input.contact_input {
@@ -834,9 +782,6 @@ div.pagination span.disabled {
     text-align: center;
 }
 .admin_table{
-    margin-top: -225px;
-    margin-left: 130px;
-    width: 360px;
     border-collapse: collapse;
 }
 .admin_td{
@@ -855,8 +800,7 @@ form.center_block p{
 
 }
 form.center_block span {
-    margin-bottom: 0px;
-    margin-left: 206px;
+    margin-bottom: 0;
 }
 #try {
     color: #0000BB;
@@ -868,37 +812,13 @@ form.center_block span {
     border: 1px solid PowderBlue;
     border-radius: 10px;
     width: 346px;
-}
-
-.user_active a{
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
     margin-top: 10px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #E0F2F7;
-    text-align: left;
-    border-radius: 7px;
-    border: 1px solid #37728e;
 }
 
 .admin_active a{
-    display: block;
-    color: #37728e;
-    text-decoration: none;
-    width: 100px;
-    height: 10px;
-    border-radius: 7px;
-    margin-top: 12px;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #e0f0c7;
-    text-align: left;
+    border: 1px solid #37728e;
+}
+.user_active a{
     border: 1px solid #37728e;
 }
 
@@ -916,4 +836,11 @@ form.center_block span {
     background-color: #e0f0c7;
     text-align: left;
     border: 1px solid #37728e;
+}
+
+.add-new-button {
+    padding-top: 10px;
+}
+.featured {
+    margin-top: 50px;
 }

@@ -25,7 +25,7 @@ class Good
 
     /**
      * @Assert\NotBlank(message="Category missing!")
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="goods")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
@@ -74,6 +74,75 @@ class Good
      * @ORM\Column(name="picture", type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="featured", type="boolean", nullable=true)
+     */
+    private $featured;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="new", type="boolean", nullable=true)
+     */
+    private $new;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="promotion", type="boolean", nullable=true)
+     */
+    private $promotion;
+
+    /**
+     * @return boolean
+     */
+    public function isFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * @param boolean $featured
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isNew()
+    {
+        return $this->new;
+    }
+
+    /**
+     * @param boolean $new
+     */
+    public function setNew($new)
+    {
+        $this->new = $new;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isPromotion()
+    {
+        return $this->promotion;
+    }
+
+    /**
+     * @param boolean $promotion
+     */
+    public function setPromotion($promotion)
+    {
+        $this->promotion = $promotion;
+    }
 
     /**
      * Get id
